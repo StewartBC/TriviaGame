@@ -42,6 +42,10 @@ h2 {
     font-size: 45px;
 }
 
+#startOver {
+    margin-top: 50px;
+}
+
 #timeDisplay {
     margin-top: 75px;
 }

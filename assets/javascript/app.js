@@ -124,6 +124,7 @@ var answer;
 
 // function to start the game
 function startGame() {
+    $("#timeDisplay").removeClass("hide");
     $("#start").addClass("hide");
     $("#startOver").addClass("hide");
     $("#questionDisplay").removeClass("hide");
@@ -198,6 +199,7 @@ function displayOutOfTime() {
 // function that's called when the user completed the trivia game
 function completed() {
     $("#startOver").removeClass("hide");
+    $("#timeDisplay").addClass("hide");
     $("#questionDisplay").html("<h2>All done, here's how you did!</h2><br>" + "<h4>Correct Answers: " + correctAnswers + "</h4><br><h4>Incorrect Answers: " + wrongAnswers + "</h4><br><h4> Unanswered: " + unanswered + "</h4>");
 }
 

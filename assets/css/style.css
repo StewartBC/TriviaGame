@@ -1,18 +1,47 @@
-.hide {
-    visibility: hidden
+body {
+    background-image: url("../images/Background.jpg");
+    text-align: center;
+    color: white;
+    font-family: 'Kanit', sans-serif;
 }
 
-/* button {
+button {
     background-color: Transparent;
     border: none;
     cursor:pointer;
     overflow: hidden;
-} */
-
-#start {
-    background-color: pink;
 }
 
 button:hover {
     background-color: lightblue;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 45px;
+}
+
+.answer-button {
+    color: white;
+}
+
+.hide {
+    visibility: hidden
+}
+
+#questionDisplay {
+    font-size: 30px;
+}
+
+#start, #startOver {
+    color: white;
+    width: 50%;
+    font-size: 45px;
+}
+
+#timeDisplay {
+    margin-top: 75px;
 }

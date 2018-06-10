@@ -1,3 +1,4 @@
+// array to hold each question, their answers, their correct answers, and an image to display for each
 var trivia = [
     {
         question: "What is the name of Orianna's ultimate ability?",
@@ -112,31 +113,32 @@ var trivia = [
 
 ];
 
+// variable declaration
 var correctAnswers = 0;
 var wrongAnswers = 0;
 var unanswered = 0;
 var index = 0;
-var timeRemaining = 31;
+var timeRemaining = 30;
 var intervalId;
 var answer;
 
-function stopTimer() {
-    clearInterval(intervalId);
-}
-
+// function to start the game
 function startGame() {
     $("#start").addClass("hide");
     $("#startOver").addClass("hide");
     $("#questionDisplay").removeClass("hide");
+    $("#timeDisplay").html("<h2>Time Remaining: " + timeRemaining + " seconds</h2>")
     wrongAnswers = 0;
     index = 0;
     correctAnswers = 0;
     unanswered = 0;
-    timeRemaining = 31;
+    timeRemaining = 30;
     game();
 }
 
+// function holding the main logic for the game
 function game() {
+    $("#timeDisplay").html("<h2>Time Remaining: " + timeRemaining + " seconds</h2>")
     $("#questionDisplay").html(trivia[index].question + "<br>");
     for (k = 0; k < 4; k++) {
         var answerButton = $("<button>");
@@ -151,6 +153,7 @@ function game() {
     intervalId = setInterval(decrement, 1000);
 }
 
+// function to decrease the timer by 1 second and display the new time
 function decrement() {
     timeRemaining--;
     $("#timeDisplay").html("<h2>Time Remaining: " + timeRemaining + " seconds</h2>")
@@ -158,10 +161,11 @@ function decrement() {
         clearInterval(intervalId);
         unanswered++;
         displayOutOfTime();
-        timeRemaining = 31;
+        timeRemaining = 30;
     }
 }
 
+// function that's called if the user answered correctly
 function displayCorrect() {
     $("#questionDisplay").html("Correct!<br>" + trivia[index].image);
     if (index === 9) {
@@ -171,8 +175,9 @@ function displayCorrect() {
     setTimeout(game, 5000);
 }
 
+// function that's called if the user answered incorrectly
 function displayWrong() {
-    $("#questionDisplay").html("Nope!<br>" + "The correct answer was " + trivia[index].correctAnswer + "<br>" + trivia[index].image);
+    $("#questionDisplay").html("Nope!<br>" + "The correct answer was " + trivia[index].correctAnswer + ".<br>" + trivia[index].image);
     if (index === 9) {
         setTimeout(completed, 5000)
     }
@@ -180,8 +185,9 @@ function displayWrong() {
     setTimeout(game, 5000);
 }
 
+// function that's called if the user didn't answer in time
 function displayOutOfTime() {
-    $("#questionDisplay").html("Out of time!<br>" + "The correct answer was " + trivia[index].correctAnswer + "<br>" + trivia[index].image);
+    $("#questionDisplay").html("Out of time!<br>" + "The correct answer was " + trivia[index].correctAnswer + ".<br>" + trivia[index].image);
     if (index === 9) {
         setTimeout(completed, 5000)
     }
@@ -189,13 +195,19 @@ function displayOutOfTime() {
     setTimeout(game, 5000);
 }
 
+// function that's called when the user completed the trivia game
 function completed() {
     $("#startOver").removeClass("hide");
     $("#questionDisplay").html("<h2>All done, here's how you did!</h2><br>" + "<h4>Correct Answers: " + correctAnswers + "</h4><br><h4>Incorrect Answers: " + wrongAnswers + "</h4><br><h4> Unanswered: " + unanswered + "</h4>");
 }
 
+// when the user clicks "start", call the startGame function
 $("#start").click(startGame);
 
+// when the user clicks "start over", call the startGame function
+$("#startOver").click(startGame);
+
+// function that runs when the user clicks an answer
 $(document).on("click", ".answer-button", function () {
     clearInterval(intervalId);
     var userAnswer = $(this).attr("data-answer");
@@ -206,122 +218,5 @@ $(document).on("click", ".answer-button", function () {
         wrongAnswers++;
         displayWrong();
     }
-    timeRemaining = 31;
+    timeRemaining = 30;
 });
-
-$("#startOver").click(startGame);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function stop() {
-//     clearInterval(intervalId);
-// }
-
-// function game() {
-//     $("#questionDisplay").html(trivia[index].question + "<br>");
-//     for (k = 0; k < 4; k++) {
-//         var answerButton = $("<button>");
-//         $(answerButton).append(trivia[index].answers[k]);
-//         $(answerButton).addClass("answer-button");
-//         $(answerButton).attr("data-answer", trivia[index].answers[k]);
-//         $("#questionDisplay").append(answerButton);
-//         $("#questionDisplay").append("<br>");
-//         answer = trivia[index].correctAnswer;
-//     }
-//     index++;
-// }
-
-// function start() {
-//     $("#start").addClass("hide");
-//     $("#questionDisplay").removeClass("hide");
-//     intervalId = setInterval(decrement, 1000);
-// }
-
-// function decrement() {
-//     timeRemaining--;
-//     $("#timeDisplay").html("Time remaining: " + timeRemaining + "seconds");
-//     if (timeRemaining === 0) {
-//         unanswered++;
-//         timeRemaining = 30;
-//         game();
-//     }
-// }
-
-// $(document).on("click", ".answer-button", function () {
-//     var userAnswer = $(this).attr("data-answer");
-//     if (userAnswer === answer) {
-//         correctAnswers++;
-//     } else {
-//         wrongAnswers++;
-//     }
-//     game();
-//     timeRemaining = 30;
-// });
-
-// $("#start").on("click", function () {
-//     start();
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

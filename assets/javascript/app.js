@@ -64,7 +64,7 @@ var trivia = [
             "Bristle"
         ],
         correctAnswer: "Willump",
-        image: "<img src=\"assets/images/Nunu.jpg\" alt=\"Nunu\">"
+        image: "<img src=\"assets/images/Nunu.jpeg\" alt=\"Nunu\">"
     },
     {
         question: "How many champions are currently available in League of Legends?",

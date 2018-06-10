@@ -85,7 +85,7 @@ var trivia = [
             "Super Mega Death Rocket!"
         ],
         correctAnswer: "Final Spark",
-        image: "<img src=\"assets/images/Lux.jpg\" alt=\"Final Spark\">"
+        image: "<img src=\"assets/images/Lux.jpeg\" alt=\"Final Spark\">"
     },
     {
         question: "How much gold does a completed Infinity Edge cost?",

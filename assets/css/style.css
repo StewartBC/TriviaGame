@@ -1,3 +1,18 @@
 .hide {
     visibility: hidden
 }
+
+/* button {
+    background-color: Transparent;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+} */
+
+#start {
+    background-color: pink;
+}
+
+button:hover {
+    background-color: lightblue;
+}

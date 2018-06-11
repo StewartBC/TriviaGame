@@ -24,6 +24,10 @@ h2 {
     font-size: 45px;
 }
 
+img {
+    margin-top: 25px;
+}
+
 .answer-button {
     color: white;
 }
